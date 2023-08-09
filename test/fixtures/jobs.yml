@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departamento: MyString
+  cargo: MyString
+  requerimientos: MyString
+  sueldo: MyString
+
+two:
+  departamento: MyString
+  cargo: MyString
+  requerimientos: MyString
+  sueldo: MyString
