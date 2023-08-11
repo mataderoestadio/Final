@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :jobs
-  has_many :postulations, through: :jobs
+  has_many :postulations
+  has_many :jobs, through: :postulations
   enum :role, [:normal_user, :admin]       
 end

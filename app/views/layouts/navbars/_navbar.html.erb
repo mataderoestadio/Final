@@ -43,6 +43,18 @@
   </div>
     <% end %><br />
 <% end %>
+
+<%if current_user.admin?%>
+<div>
+<h3>Employees postulations</h3>
+<%Postulation.all.each do |p| %>
+<p>
+<%=p.user.name%> postuló hace <%=time_ago_in_words(p.created_at)%> al puesto  <%=p.job.cargo%>
+</p>
+
+<%end%>
+</div>
+<%end%>
 <%end%>
 
 

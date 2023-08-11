@@ -1,0 +1,8 @@
+<div>
+<ul>
+<%Postulation.kinds.each do |kind|%>
+<li><%= button_to "#{kind}", user_postulation_path(job_id: @job.id, kind: kind), method: :post%>
+</li>
+<%end%>
+</ul>
+</div>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       #devise_scope :user do
        # post "users/registration" => "registrations#create"
       #end   
+      post 'postulations', to:"postulations#user_postulation", as:"user_postulation"
+      get 'my_postulations',  to:"postulations#job_with_postulation", as: "my_postulations"
 
       devise_scope :user do
         post "create_user" => "devise/registrations#create"
