@@ -2,6 +2,7 @@
 
         <%if user_signed_in?%>
          <%= button_to "Cerrar Sesión", destroy_user_session_path,  method: :delete %>
+         <%= link_to "Mis postulaciones", my_postulations_path, class:"dropdown-item" %>
          
           <%if current_user.admin?%>
  <%= form_with(model: @users) do |f| %>

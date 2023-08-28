@@ -19,10 +19,15 @@ class PostulationsController < ApplicationController
                     end
             end
         end
-    def job_with_postulation 
-        @jobs= Job.all
-        @postulations=current_user.postulations
-        job_ids= @postulations.map(&:job_id)
-        job =Job.where(id:job_ids)
-end
+        def job_with_postulation
+            @jobs = Job.all
+            @postulations = current_user.postulations
+            job_ids = @postulations.map(&:job_id)
+            @jobs = Job.where(id: job_ids) # Assign the filtered jobs to @jobs
+          
+            # Render the HTML view template
+            render :job_with_postulation
+          end
+          
+          
 end

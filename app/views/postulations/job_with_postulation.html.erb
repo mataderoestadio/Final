@@ -1,0 +1,9 @@
+<h1>My postulations</h1>
+<ul>
+ <% @jobs.each do |j| %>
+ <li>
+ <%= j.cargo %> - <%= j.departamento %>
+ </li>
+
+ <% end %>
+</ul>
