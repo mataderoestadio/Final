@@ -66,6 +66,7 @@ class UsersController < ApplicationController
         :age,
         :gender,
         :position,
+        :avatar,
 
       )
     end

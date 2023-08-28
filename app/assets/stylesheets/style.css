@@ -1,0 +1,5 @@
+.avatar {
+    width: 50px; /* Reduces the displayed width to 50% of its original size */
+    height: auto; /* Maintains the original aspect ratio */
+  }
+  

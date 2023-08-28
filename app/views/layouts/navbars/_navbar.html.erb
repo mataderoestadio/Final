@@ -26,6 +26,12 @@
     <%= f.label :position %><br />
     <%= f.text_field :position, autofocus: true, autocomplete: "position" %>
   </div>
+   <div class="form-group">
+    <%= f.label :avatar %><br />
+    <%=f.file_field :avatar, multiple: false, class:'form-control'%>
+
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -50,7 +56,8 @@
 <h3>Employees postulations</h3>
 <%Postulation.all.each do |p| %>
 <p>
-<%=p.user.name%> postuló hace <%=time_ago_in_words(p.created_at)%> al puesto  <%=p.job.cargo%>
+<%if p.user.avatar.persisted?%>
+<%=image_tag p.user.avatar, class:"avatar rounded-circle"%> <%end%>--<%=p.user.name%> postuló hace <%=time_ago_in_words(p.created_at)%> al puesto  <%=p.job.cargo%>
 </p>
 
 <%end%>
