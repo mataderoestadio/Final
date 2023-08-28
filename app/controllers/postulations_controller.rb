@@ -1,5 +1,6 @@
 class PostulationsController < ApplicationController
     before_action :authenticate_user!
+    
     def user_postulation
         @user = current_user
         @job = Job.find(params[:job_id])

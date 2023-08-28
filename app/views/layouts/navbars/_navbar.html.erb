@@ -2,9 +2,9 @@
 
         <%if user_signed_in?%>
          <%= button_to "Cerrar Sesión", destroy_user_session_path,  method: :delete %>
-         <%= link_to "Edit user", edit_user_password_path, method: :get %>
+         
           <%if current_user.admin?%>
- <%= form_for User.new, url:  create_user_path, method: :post do |f| %>
+ <%= form_with(model: @users) do |f| %>
     <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -30,12 +30,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "password" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "password confirmation" %>
   </div>
 
   <div class="actions">

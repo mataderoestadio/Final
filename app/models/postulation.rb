@@ -1,4 +1,5 @@
 class Postulation < ApplicationRecord
+  order('created_at DESC')
     belongs_to :user
     belongs_to :job 
   
