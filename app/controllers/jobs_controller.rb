@@ -13,11 +13,13 @@ class JobsController < ApplicationController
     @jobs = Job.all
     @user = current_user
     @users= User.create
+   
   end
-
+  
   # GET /jobs/1 or /jobs/1.json
   def show
     
+    @job = Job.find(params[:id])
   end
 
   # GET /jobs/new

@@ -2,13 +2,16 @@
 
 <h1>Jobs</h1>
 
-<div id="jobs">
-  <% @jobs.each do |job| %>
-    <%= render job %>
-    <p>
-      <%= link_to "Show this job", job %>
-    </p>
-  <% end %>
+  <% @jobs.each do |j| %>
+<div class="card" style="width: 18rem;">
+  <div id="jobs" class="card-body">
+    <h5 class="card-title"><%=j.cargo%></h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"><%=j.departamento%></h6>
+    <p class="card-text"><%=j.requerimientos%></p>
+   <%= link_to "Show this job", j %></a>
+    
+  </div>
 </div>
+  <%end%>
 
-<%= link_to "New job", new_job_path %>
+
