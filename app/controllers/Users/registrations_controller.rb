@@ -6,7 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #prepend_before_action :require_no_authentication, only: [:new, :create, :cancel]
   before_action :authenticate_user!, only:[:edit, :update]
   before_action :authenticate_admin!, only: [:new, :create]
-  before_action :is_admin?
+  before_action :is_admin?, only:[:new, :create]
+  before_action :configure_account_update_params, only: [:update]
   #before_action :configure_sign_up_params, only: [:create]
 
   #before_action :configure_sign_up_params, only: [:create, :edit]
@@ -78,9 +79,18 @@ end
   end
   
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [
+      :email,
+      :password,
+      :password_confirmation,
+      :current_password,
+      :name,
+      :age,
+      :gender,
+      :position,
+      :avatar])
+  end
   
   # def after_sign_up_path_for(resource)
   #   root_path
@@ -130,4 +140,18 @@ end
       end
     end
   end
-end
+private 
+
+  # def user_params
+  #   params.require(:user).permit(
+  #     :email,
+  #     :password,
+  #     :password_confirmation,
+  #     :current_password,
+  #     :name,      # Add the permitted attributes here
+  #     :age,       # Add the permitted attributes here
+  #     :gender,    # Add the permitted attributes here
+  #     :position,  # Add the permitted attributes here
+  #     :avatar     # Add the permitted attributes here
+  #   )
+  # end

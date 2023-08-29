@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(current_user, url: user_registration_path, method: :put, html: { multipart: true }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -23,9 +23,10 @@
     <%= f.label :position %><br />
     <%= f.text_field :position, autofocus: true, autocomplete: "position" %>
   </div>
-  <div class="field">
+    <div class="form-group">
     <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %>
+    <%=f.file_field :avatar, multiple: false, class:'form-control'%>
+
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

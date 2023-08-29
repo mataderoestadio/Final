@@ -1,7 +1,7 @@
 class Postulation < ApplicationRecord
   order('created_at DESC')
-    belongs_to :user
-    belongs_to :job 
+    belongs_to :user, dependent: :destroy
+    belongs_to :job, dependent: :destroy 
   
     validates :kind , acceptance: {
       accept: %w[Postula],
