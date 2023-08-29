@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
-
+<%if current_user.admin?%>
+<%=link_to "Create a job ", new_job_path%>
+<%end%>
 <h1>Jobs</h1>
 
   <% @jobs.each do |j| %>
