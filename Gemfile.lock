@@ -239,6 +239,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64‐linux
 
 DEPENDENCIES
   aws-sdk-s3 (~> 1.134)
